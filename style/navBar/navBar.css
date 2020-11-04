@@ -2,11 +2,13 @@
 width: 40px;
 }
 #logout-nav{
+position: relative;
+left: 900px;
 display: none;
 }
-#register-nav{
+#move-to-register{
 display: block;
 }
-#signin-nav{
+#move-to-login{
 display: block;
 }

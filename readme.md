@@ -1,6 +1,6 @@
 חלוקת תפקידים:
 ענבל - מוצרים
-אדיר - navbar,register
+אדיר - navbar,register+login
 
 
 
