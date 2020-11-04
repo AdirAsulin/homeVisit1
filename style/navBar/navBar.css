@@ -1,0 +1,12 @@
+#navbar-logo{
+width: 40px;
+}
+#logout-nav{
+display: none;
+}
+#register-nav{
+display: block;
+}
+#signin-nav{
+display: block;
+}

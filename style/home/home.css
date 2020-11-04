@@ -8,3 +8,8 @@ html, body{
     grid-column: repeat(12,fr);
     
 }
+.footer-home{
+    position: fixed;
+    bottom: 3px;
+    left: 40%;
+}
