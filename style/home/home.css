@@ -2,9 +2,71 @@ html, body{
     padding: 0;
     margin:0;
 }
-.container{
+.my-container{
     display: grid;
-    grid-row: 33% 33% 33%;
-    grid-column: repeat(12,fr);
-    
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: 12% 45% 30% 25% 15% ;
+}
+/* .my-nav{
+
+} */
+header{
+    grid-row: 12%;
+    grid-column: span 12;
+    display: flex;
+    text-align: center;
+    align-self: center;
+}
+main{
+    grid-row: 45%;
+    grid-column: span 12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+.section{
+    grid-row: 30%;
+    grid-column: span 12;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    flex-direction: row;
+}
+.product1{
+    height: 350px;
+    width: 100px;
+    flex:1;
+    background-image: url(./donation.jpg);
+    text-align: center;
+    background-size: cover;
+    margin: 20px;
+}
+.product2{
+    height: 350px;
+    width: 100px;
+    flex:1;
+    background-image: url(./christmas.jpg);
+    background-size: cover;
+    margin: 20px;
+
+}
+.product3{
+    height: 350px;
+    width: 100px;
+    flex:1;
+    background-image: url(./card.jpg);
+    background-size: cover;
+    margin: 20px;
+
+}
+
+footer{
+    grid-row: 15%;
+    grid-column: span 12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
