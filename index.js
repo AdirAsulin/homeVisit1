@@ -6,6 +6,7 @@ const DOM ={
     registerDiv: document.querySelector("#registerDiv"),
     loginDiv:document.querySelector("#loginDiv"),
     productsDiv:document.querySelector("#products-div"),
+    successRegisterDiv:document.querySelector("#successRegisterDiv"),
 
 
     // nav elements
@@ -25,18 +26,38 @@ const DOM ={
 
     // sign in elements
     userNameSignIn:document.querySelector("#userNameInput-signIn"),
-    passwordSignIn:document.querySelector("passwordSignIn"),
+    passwordSignIn:document.querySelector("#passwordSignIn"),
 
     // register elements
-
-
+    firstNameRegister:document.querySelector("#firstName-Register"),
+    lastNameRegister:document.querySelector("#lastName-Register"),
+    emailRegister: document.querySelector("#email-register"),
+    passwordRegister:document.querySelector("#password-register"),
+    passwordConfirmationRegister:document.querySelector("#passwordConfirmation-register"),
+    registerBtn:document.querySelector("#registerBtn"),
+    registerErrorMessage:document.querySelector("#registerErrorMessage")
+    
 }
+console.log(DOM)
+
+const users = JSON.parse(localStorage.getItem("users")) || []
+
+
+function register(email,password,name) {
+    users.push({
+        id:Math.random()*9999,
+        email,
+        password,
+        name
+    })
+    localStorage.setItem("users",JSON.stringify(users))
+}
+
 // home page nav event
 DOM.moveToHomePage.addEventListener("click", ()=>{
     DOM.homePageDiv.classList.remove("hide")
     DOM.loginDiv.classList.add("hide")
     DOM.registerDiv.classList.add("hide")
- 
     
 })
 // login nav event
@@ -54,4 +75,47 @@ DOM.moveToRegister.addEventListener("click", ()=>{
     DOM.homePageDiv.classList.add("hide")
 
 })
+function checkIfUserExist(email) {
+    return users.find((user)=>user.email===email)
+}
+
+DOM.registerBtn.addEventListener("click",()=>{
+    const{
+        firstNameRegister,
+        lastNameRegister,
+        emailRegister,
+        passwordRegister,
+        passwordConfirmationRegister,
+        registerErrorMessage,
+        successRegisterDiv
+    }=DOM
+    if (!firstNameRegister.value|| !lastNameRegister.value || !emailRegister.value || !passwordRegister.value || !passwordConfirmationRegister.value) {
+        registerErrorMessage.innerHTML = "please enter all fields"
+        console.log("please enter all fields");
+        return
+    }
+    if (passwordRegister.value !== passwordConfirmationRegister.value) {
+        registerErrorMessage.innerHTML = "password doesn't match"
+        console.log("password doesn't match");
+        return
+    }
+    const isExists = checkIfUserExist(DOM.emailRegister.value)
+    if (isExists) {
+        registerErrorMessage.innerHTML = "email is already in use"
+        console.log("email is already in use");
+        return
+    }
+    register({
+        email:emailRegister.value,
+        password: passwordRegister.value ,
+        name: `${firstNameRegister.value} ${lastNameRegister.value}`,
+    })
+    registerErrorMessage.innerHTML = ""
+successRegisterDiv.classList.remove("hide")
+})
+
+
+
+
+
 
