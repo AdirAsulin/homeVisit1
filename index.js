@@ -43,7 +43,7 @@ console.log(DOM)
 const users = JSON.parse(localStorage.getItem("users")) || []
 
 
-function register(email,password,name) {
+function register({email,password,name}) {
     users.push({
         id:Math.random()*9999,
         email,
@@ -73,13 +73,16 @@ DOM.moveToRegister.addEventListener("click", ()=>{
     DOM.registerDiv.classList.remove("hide")
     DOM.loginDiv.classList.add("hide")
     DOM.homePageDiv.classList.add("hide")
+    DOM.successRegisterDiv.classList.add("hide")
 
 })
 function checkIfUserExist(email) {
+    console.log(email)
     return users.find((user)=>user.email===email)
 }
 
 DOM.registerBtn.addEventListener("click",()=>{
+    
     const{
         firstNameRegister,
         lastNameRegister,
@@ -89,6 +92,9 @@ DOM.registerBtn.addEventListener("click",()=>{
         registerErrorMessage,
         successRegisterDiv
     }=DOM
+    
+    successRegisterDiv.classList.add("hide")
+
     if (!firstNameRegister.value|| !lastNameRegister.value || !emailRegister.value || !passwordRegister.value || !passwordConfirmationRegister.value) {
         registerErrorMessage.innerHTML = "please enter all fields"
         console.log("please enter all fields");
@@ -99,7 +105,8 @@ DOM.registerBtn.addEventListener("click",()=>{
         console.log("password doesn't match");
         return
     }
-    const isExists = checkIfUserExist(DOM.emailRegister.value)
+    const isExists = checkIfUserExist(emailRegister.value)
+    console.log(isExists)
     if (isExists) {
         registerErrorMessage.innerHTML = "email is already in use"
         console.log("email is already in use");
