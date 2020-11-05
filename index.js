@@ -92,13 +92,12 @@ DOM.registerBtn.addEventListener("click",()=>{
         registerErrorMessage,
         successRegisterDiv
     }=DOM
-    
+
     successRegisterDiv.classList.add("hide")
 
     if (!firstNameRegister.value|| !lastNameRegister.value || !emailRegister.value || !passwordRegister.value || !passwordConfirmationRegister.value) {
         registerErrorMessage.innerHTML = "please enter all fields"
         console.log("please enter all fields");
-        return
     }
     if (passwordRegister.value !== passwordConfirmationRegister.value) {
         registerErrorMessage.innerHTML = "password doesn't match"
