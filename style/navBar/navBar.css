@@ -12,3 +12,6 @@ display: block;
 #move-to-login{
 display: block;
 }
+#navbar{
+    position: sticky;
+}

@@ -13,6 +13,7 @@ const DOM ={
     logout:document.querySelector("#logout-nav"),
     searchInputNav:document.querySelector("#searchInput-nav"),
     searchBtnNav:document.querySelector("#searchBtn-nav"),
+    
     // move To
     moveToHomePage:document.querySelector("#move-to-homePage"),
     moveToRegister:document.querySelector("#move-to-register"),

@@ -1,7 +1,7 @@
 חלוקת תפקידים:
-ענבל - מוצרים
+ענבל - products
 אדיר - navbar,register+login
-
+חן- home page
 
 
 
