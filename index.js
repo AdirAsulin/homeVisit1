@@ -125,10 +125,14 @@ successRegisterDiv.classList.remove("hide")
 })
 
 
-const result = products.reduce((obj, product)=>{
+let result = products.reduce((obj, product)=>{
     const {category} = product
     const products = obj[category]|| []
-    products.push([product])
+    products.push(product)
     return {...obj, [category]:products}
 }, {})
+const selected = "Beers"
+result[selected].forEach(product=>{
+    console.log(product.title)
+})
 console.log(result)
