@@ -75,3 +75,8 @@ footer{
     bottom: 3px;
     left: 40%;
 }
+
+.carousel-item img{
+    height:350px;
+    width:500px;
+}

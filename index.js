@@ -27,6 +27,7 @@ const DOM ={
     // sign in elements
     userNameSignIn:document.querySelector("#userNameInput-signIn"),
     passwordSignIn:document.querySelector("#passwordSignIn"),
+    signupLinkSingIn:document.querySelector("#signUp-link-login"),
 
     // register elements
     firstNameRegister:document.querySelector("#firstName-Register"),
@@ -69,13 +70,15 @@ DOM.moveToLogin.addEventListener("click", ()=>{
     
 })
 // register nav event
-DOM.moveToRegister.addEventListener("click", ()=>{
+DOM.moveToRegister.addEventListener("click", moveToRegister)
+DOM.signupLinkSingIn.addEventListener("click", moveToRegister)
+
+function moveToRegister(){
     DOM.registerDiv.classList.remove("hide")
     DOM.loginDiv.classList.add("hide")
     DOM.homePageDiv.classList.add("hide")
     DOM.successRegisterDiv.classList.add("hide")
-
-})
+}
 function checkIfUserExist(email) {
     console.log(email)
     return users.find((user)=>user.email===email)
