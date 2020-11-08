@@ -4,6 +4,7 @@ html, body{
 }
 .my-container{
     display: grid;
+<<<<<<< HEAD
     grid-template-columns: repeat(12,1fr);
     grid-template-rows: 12% 45% 30% 25% 15% ;
 }
@@ -70,3 +71,14 @@ footer{
     justify-content: center;
     text-align: center;
 }
+=======
+    grid-row: 33% 33% 33%;
+    grid-column: repeat(12,fr);
+    
+}
+.footer-home{
+    position: fixed;
+    bottom: 3px;
+    left: 40%;
+}
+>>>>>>> 2beba55034d39ed96604fe7fc7e2ec7b67d46fb4
