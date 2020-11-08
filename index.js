@@ -123,3 +123,12 @@ DOM.registerBtn.addEventListener("click",()=>{
     registerErrorMessage.innerHTML = ""
 successRegisterDiv.classList.remove("hide")
 })
+
+
+const result = products.reduce((obj, product)=>{
+    const {category} = product
+    const products = obj[category]|| []
+    products.push([product])
+    return {...obj, [category]:products}
+}, {})
+console.log(result)
